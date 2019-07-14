@@ -32,6 +32,7 @@ public class AttachmentConsumer {
         context.start();
 
         AttachmentService attachmentService = context.getBean("demoService", AttachmentService.class);
+        // setAttachment 设置的 KV 对，在完成下面一次远程调用会被清空，即多次远程调用要多次设置。
         RpcContext.getContext().setAttachment("index", "1");
 
         String hello = attachmentService.sayHello("world");
