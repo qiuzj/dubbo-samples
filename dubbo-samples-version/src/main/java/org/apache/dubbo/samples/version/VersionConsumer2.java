@@ -23,10 +23,10 @@ import org.apache.dubbo.samples.version.api.VersionService;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class VersionConsumer {
+public class VersionConsumer2 {
 
     public static void main(String[] args) throws Exception {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/version-consumer.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/version-consumer2.xml");
         context.start();
 
         VersionService versionService = (VersionService) context.getBean("versionService");
