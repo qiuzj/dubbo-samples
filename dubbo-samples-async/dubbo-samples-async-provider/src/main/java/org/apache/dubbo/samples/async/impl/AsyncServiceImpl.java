@@ -35,6 +35,7 @@ public class AsyncServiceImpl implements AsyncService {
         logger.info("sayHello start");
 
         new Thread(() -> {
+        	// 如果要使用上下文，则必须要放在第一句执行
             asyncContext.signalContextSwitch();
             logger.info("Attachment from consumer: " + RpcContext.getContext().getAttachment("consumer-key1"));
             logger.info("async start");
@@ -43,6 +44,7 @@ public class AsyncServiceImpl implements AsyncService {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // sayHello实际返回的是这句
             asyncContext.write("Hello " + name + ", response from provider.");
             logger.info("async end");
         }).start();
